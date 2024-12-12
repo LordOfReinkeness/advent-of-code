@@ -1,0 +1,11 @@
+new_obstacle_map = copy.deepcopy(data)
+new_obstacle_map[y][x] = 'O'
+
+# check if needs to play
+# animate = False
+# if [x, y] in invalid_obstacles:
+# 	animate = True
+
+if has_loop(new_obstacle_map):
+    out +=1
+    invalid_obstacles.append([x,y])
