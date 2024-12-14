@@ -1,4 +1,2 @@
-def parse_input(data):
-	out = data
-	# Your challenges for AOC 2024 day 12 input parsing goes here
-	return out
+def parse_input(data: str):
+	return [list(line) for line in data.strip().split('\n')]

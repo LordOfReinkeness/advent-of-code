@@ -35,7 +35,7 @@ def init(day, year):
         f.close()
 
     f = open('%s/input_parse.py' % directory, 'x')
-    f.write("def parse_input(data):"
+    f.write("def parse_input(data: string):"
             "\n\tout = data"
             "\n\t# Your challenges for AOC %s day %s input parsing goes here"
             "\n\treturn out\n" %
