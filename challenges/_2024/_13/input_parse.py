@@ -1,4 +1,2 @@
-def parse_input(data: string):
-	out = data
-	# Your challenges for AOC 2024 day 13 input parsing goes here
-	return out
+def parse_input(data: str):
+	return [[] for i in range(int(len(data)/4))]

@@ -1,23 +1,23 @@
 from challenges._2024._10.input_parse import parse_input
 
-data = []
+arena_map = []
 adjacency_map = [[0, -1], [1, 0], [0, 1], [-1, 0]]
 
 def get_trailheads(x, y):
-	if data[y][x] == 9:
+	if arena_map[y][x] == 9:
 		return 1
 
 	out = 0
 	for adjacency_vector in adjacency_map:
 		next_x = x + adjacency_vector[0]
 		next_y = y + adjacency_vector[1]
-		if 0 <= next_x < len(data[0]) and 0 <= next_y < len(data) and data[y][x] + 1 == data[next_y][next_x]:
+		if 0 <= next_x < len(arena_map[0]) and 0 <= next_y < len(arena_map) and arena_map[y][x] + 1 == arena_map[next_y][next_x]:
 			out += get_trailheads(next_x, next_y)
 
 	return out
 
 def main(data_unparsed):
-	global data
+	global arena_map
 	data = parse_input(data_unparsed)
 	# Your challenges for AOC 2024 day 10 part 1 goes here
 

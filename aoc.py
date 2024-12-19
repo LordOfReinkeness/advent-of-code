@@ -35,11 +35,8 @@ def init(day, year):
         f.close()
 
     f = open('%s/input_parse.py' % directory, 'x')
-    f.write("def parse_input(data: string):"
-            "\n\tout = data"
-            "\n\t# Your challenges for AOC %s day %s input parsing goes here"
-            "\n\treturn out\n" %
-            (year, day))
+    f.write("def parse_input(data: str):"
+            "\n\treturn [line for line in data.strip().split('\\n')]\n")
     f.close()
 
     get_puzzle(1, day, year)
@@ -78,10 +75,10 @@ def run(day, year, args):
     with open(data_file, 'r') as f:
         data = f.read()
 
-    if '1' in puzzle_state['years'][year][day] and puzzle_state['years'][year][day]['1'] != '':
+    if '1' in puzzle_state['years'][year][day] and puzzle_state['years'][year][day]['1'] != '' and not args.ignore_solutions:
         print('Part 1 already completed. Solution was: "%s"' % puzzle_state['years'][year][day]['1'])
 
-        if '2' in puzzle_state['years'][year][day] and puzzle_state['years'][year][day]['2'] != '':
+        if '2' in puzzle_state['years'][year][day] and puzzle_state['years'][year][day]['2'] != '' and not args.ignore_solutions:
             print('Part 2 already completed. Solution was: "%s"' % puzzle_state['years'][year][day]['2'])
         else:
             print('Running part 2')
@@ -191,6 +188,7 @@ def main(argv):
                         default=str(datetime.datetime.today().day))
     parser.add_argument('-y', '--year', help='Year to run default is this year',
                         default=str(datetime.datetime.today().year))
+    parser.add_argument('--ignore_solutions', action='store_true', help='Run without looking if results are already stored')
     args = parser.parse_args()
 
     load_dotenv()
