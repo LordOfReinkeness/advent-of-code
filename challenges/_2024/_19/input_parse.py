@@ -1,2 +1,2 @@
 def parse_input(data: str):
-	return [line for line in data.strip().split('\n')]
+	return data.strip().split('\n\n')[0].split(', '), [line for line in data.strip().split('\n\n')[1].split('\n')]

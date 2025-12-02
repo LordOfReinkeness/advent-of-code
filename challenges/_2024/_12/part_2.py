@@ -95,14 +95,15 @@ def main(data):
 		adjusted_plots.append([plot_new, plot[2]])
 
 	for plot in adjusted_plots:
-
 		start = []
 
 		for c in range(len(plot[0][1])):
 			if plot[0][1][c] != '.':
 				start = [1, c]
 
-		left_vector
+		while True:
+			pass
+
 
 
 	return 'AOC 2024 day 12 part 2'
