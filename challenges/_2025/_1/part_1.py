@@ -12,9 +12,6 @@ def main(data):
             indicator += elem[1]
         elif elem[0] == "L":
             indicator -= elem[1]
-        else:
-            print("Something is wrong")
-            return 0
 
         indicator %= 100
 
